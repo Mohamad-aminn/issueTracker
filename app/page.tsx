@@ -1,8 +1,6 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-between p-24">
+    <main className="absolute top-[50%] right-[50%] translate-x-[50%] translate-y-[50%]">
       Goodbye World!
     </main>
   );

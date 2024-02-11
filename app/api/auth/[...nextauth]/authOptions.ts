@@ -4,17 +4,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      name: "Name",
+      name: "a name",
       credentials: {
-        email: {
-          label: "Email",
-          placeholder: "example@gmail.com",
+        email: { label: "email", type: "string", placeholder: "email" },
+        passowrd: {
+          label: "password",
           type: "string",
-        },
-        password: {
-          label: "Password",
-          placeholder: "Enter you're password here",
-          type: "string",
+          placeholder: "رمز کیری",
         },
       },
       async authorize(cred, req) {

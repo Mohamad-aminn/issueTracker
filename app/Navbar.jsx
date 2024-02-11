@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import classNames from "classnames";
 
 const Navbar = () => {
   const path = usePathname();
@@ -19,11 +20,10 @@ const Navbar = () => {
       </Link>
 
       <Link
-        className={
-          path === "/register"
-            ? "text-info hover:text-info/70"
-            : "hover:scale-105 transition-all text-txt"
-        }
+        className={classNames("transition-all", {
+          "text-info hover:text-info/70": path === "/register",
+          "text-txt": path !== "/register",
+        })}
         acti
         href={"/register"}
       >
