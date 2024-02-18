@@ -1,7 +1,10 @@
 import React from "react";
 import { Flex, Button } from "antd";
+import IssueModal from "./IssueModal";
+import IssueDetail from "./IssueDetail";
 
-interface Issue {
+export interface Issue {
+  id: string;
   title: string;
   description: string;
   createdAt: string;
@@ -24,19 +27,7 @@ const Users = async () => {
           key={i}
         >
           {/* issue detail */}
-          <div className="w-[53ch]">
-            <Flex justify="space-between">
-              <div className="font-bold text-2xl mb-3">{issue.title}</div>
-              <div className="text-xs text-[#aab]">
-                {issue.createdAt.substring(0, 19)}
-              </div>
-              <div className="text-xs text-[#aab]">
-                {issue.updatedAt.substring(0, 19)}
-              </div>
-            </Flex>
-            {/* description */}
-            <div>{issue.description}</div>
-          </div>
+          <IssueDetail issue={issue} />
 
           {/* divider */}
           <div className=" w-[1px] bg-txt/10 "></div>
@@ -50,26 +41,7 @@ const Users = async () => {
           <div className=" w-[1px] bg-txt/10 "></div>
 
           {/* actions for issue */}
-          <Flex
-            className="mx-auto"
-            vertical
-            justify="center"
-            align="center"
-            gap={10}
-          >
-            <Flex justify="center" align="center" gap={"small"}>
-              <button type="button" className="btn btn-info">
-                more info
-              </button>
-              <button type="button" className="btn btn-error">
-                report
-              </button>
-            </Flex>
-
-            <button type="button" className="w-full btn btn-success">
-              ACCEPT
-            </button>
-          </Flex>
+          <IssueModal issue={issue} />
         </Flex>
       ))}
     </Flex>

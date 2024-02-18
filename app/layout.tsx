@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Navbar from "./Navbar";
+import NextProvider from "./NextProvider";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
-import NextProvider from "./NextProvider";
+import DarkMode from "./DarkMode";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dracula">
       <body className={inter.className}>
-        <NextProvider>{children}</NextProvider>
+        <DarkMode>
+          <NextProvider>{children}</NextProvider>
+        </DarkMode>
       </body>
     </html>
   );
