@@ -7,10 +7,11 @@ import { sidebarLinks } from "./linksData";
 const SidebarLinks = () => {
   return (
     <Flex vertical gap={10}>
-      {sidebarLinks.map((link) => (
+      {sidebarLinks.map((link, i: number) => (
         <Link
-          href={"/dashbaord/issues"}
-          className="hover:bg-[#1F2544] gap-5 transition-colors border-2 border-[#1F2544] w-full rounded-md text-lg font-medium py-4 flex justify-center text-[#1F2544]"
+          href={link.href}
+          style={{ animationDelay: `${i * 4}99ms` }}
+          className="hover:bg-[#1F2544] sidebar-link hover:text-[#dddb] gap-5 transition-colors border-2 border-[#697398] w-full rounded-md text-lg font-medium py-4 flex justify-center text-[#697398]"
         >
           {link.icon}
           <div>{link.title}</div>

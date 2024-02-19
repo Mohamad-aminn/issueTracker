@@ -1,5 +1,5 @@
 "use client";
-import { Flex } from "antd";
+import { Flex, Spin } from "antd";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
@@ -8,8 +8,10 @@ import { ReactTyped } from "react-typed";
 const SIdebarProfile = () => {
   const { data, status } = useSession();
   return (
-    <Flex className="sticky" vertical justify="center" align="center" gap={15}>
-      {status !== "loading" && (
+    <Flex vertical justify="center" align="center" gap={15}>
+      {status === "loading" ? (
+        <Spin size="large" spinning />
+      ) : (
         <>
           {data?.user?.image && (
             <Image
@@ -23,7 +25,7 @@ const SIdebarProfile = () => {
           <ReactTyped
             showCursor={false}
             startWhenVisible
-            className="text-base-300 font-semibold text-lg"
+            className="text-txt font-semibold tracking-wide text-xl"
             strings={[data?.user?.name ?? "sorry did not found your name"]}
             typeSpeed={40}
           />

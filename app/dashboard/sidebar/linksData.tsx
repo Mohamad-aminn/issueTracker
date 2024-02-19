@@ -14,8 +14,8 @@ export const sidebarLinks: Link[] = [
     href: "/dashboard",
   },
   {
-    title: "Add Issue",
+    title: "Report Issue",
     icon: <FileAddOutlined size={10} />,
-    href: "/dashboard/addIssue",
+    href: "/dashboard/report-issue",
   },
 ];

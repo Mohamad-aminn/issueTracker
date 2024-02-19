@@ -2,17 +2,20 @@ import { Divider } from "antd";
 import React from "react";
 import SIdebarProfile from "./SIdebarProfile";
 import SidebarLinks from "./SidebarLinks";
+import "./sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = async () => {
   return (
-    <div>
-      {/* user info */}
-      <SIdebarProfile />
+    <div className="min-w-[400px] p-5 sidebar-bg">
+      <div className="sticky">
+        {/* user info */}
+        <SIdebarProfile />
 
-      <Divider />
+        <Divider />
 
-      {/* links */}
-      <SidebarLinks />
+        {/* links */}
+        <SidebarLinks />
+      </div>
 
       {/*  */}
     </div>
