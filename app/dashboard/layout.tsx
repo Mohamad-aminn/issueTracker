@@ -7,7 +7,7 @@ const layout = ({ children }: { children: ReactNode }) => {
       {/* sidebar */}
       <Sidebar />
 
-      <div className="flex-1 overflow-auto">{children}</div>
+      <div className="flex-1 overflow-auto bg-[#131844]/70">{children}</div>
     </div>
   );
 };

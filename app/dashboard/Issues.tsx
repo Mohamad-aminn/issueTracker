@@ -18,7 +18,7 @@ const Users = async () => {
   const issues = await res.json();
 
   return (
-    <div className="w-full h-screen bg-[#282a36]">
+    <div className="w-full h-screen">
       <Flex vertical gap={"large"} className="p-8">
         {issues.map((issue: Issue, i: number) => (
           <Flex
