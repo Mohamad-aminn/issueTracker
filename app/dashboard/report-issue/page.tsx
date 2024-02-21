@@ -1,15 +1,56 @@
+"use client";
 import { Button, Flex, Input } from "antd";
-import TextArea from "antd/es/input/TextArea";
 import React from "react";
-import Particle from "../particle/Particle";
+import { useForm, Controller } from "react-hook-form";
+import SimpleMdeReact from "react-simplemde-editor";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { addIssueSchema } from "@/app/validation/addIssueSchema";
+import "easymde/dist/easymde.min.css";
+
+interface Issue {
+  id: string;
+  title: string;
+  description: string;
+}
 
 const page = () => {
+  const {
+    formState: { errors },
+    control,
+    handleSubmit,
+  } = useForm<Issue>({ resolver: zodResolver(addIssueSchema) });
+
   return (
-    <Flex vertical justify="center" align="center" className="h-screen">
-      <form className="flex gap-5 flex-col w-96">
-        <Input placeholder="title" size="large" />
-        <TextArea rows={4} placeholder="description" />
-        <Button>Add Issue</Button>
+    <Flex
+      vertical
+      justify="center"
+      align="center"
+      className="mt-[23vh] overflow-auto"
+    >
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log(data);
+        })}
+        className="flex gap-5 flex-col w-[500px]"
+      >
+        <Controller
+          name="title"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <Input {...field} placeholder="Title" size="large" />
+          )}
+        />
+        {errors.title && <p>{errors.title.message}</p>}
+        <Controller
+          rules={{ required: true }}
+          name="description"
+          control={control}
+          render={({ field }) => (
+            <SimpleMdeReact placeholder="Enter the Description" {...field} />
+          )}
+        />
+        <Button htmlType="submit">ADD ISSUE</Button>
       </form>
     </Flex>
   );
