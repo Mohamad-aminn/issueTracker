@@ -13,7 +13,7 @@ export const POST = async (req: NextRequest) => {
 
       return NextResponse.json({}, { status: 201 });
     } else if (!res.success) {
-      return NextResponse.json(res.error.errors, { status: 400 });
+      return NextResponse.json(res.error.format(), { status: 400 });
     }
   } catch (error) {
     return NextResponse.json(error, { status: 400 });

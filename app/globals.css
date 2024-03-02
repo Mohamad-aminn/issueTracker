@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  cursor: url("/customeCursor.png"), pointer;
+}
+
 .EasyMDEContainer .CodeMirror {
   background-color: #141414;
   color: rgb(221, 209, 209);

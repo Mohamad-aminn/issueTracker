@@ -2,20 +2,20 @@ import React from "react";
 import { Flex, Button } from "antd";
 import IssueModal from "./IssueModal";
 import IssueDetail from "./IssueDetail";
+import prisma from "@/prisma/client";
 
 export interface Issue {
-  id: string;
+  id: number;
   title: string;
   description: string;
-  createdAt: string;
-  updatedAt: string;
+  status: "OPEN" | "IN_PROGRESS" | "CLOSED";
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 const Users = async () => {
-  const res = await fetch("http://localhost:3000/api/issue", {
-    cache: "reload",
-  });
-  const issues = await res.json();
+  const issues: Issue[] = await prisma.issue.findMany();
+  console.log(issues);
 
   return (
     <div className="w-full h-screen">
