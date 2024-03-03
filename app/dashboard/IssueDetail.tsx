@@ -1,6 +1,7 @@
 import React from "react";
 import { Issue } from "./Issues";
 import { Flex } from "antd";
+import Markdown from "react-markdown";
 
 const IssueDetail = ({ issue }: { issue: Issue }) => {
   console.log(issue);
@@ -16,7 +17,7 @@ const IssueDetail = ({ issue }: { issue: Issue }) => {
         </div>
       </Flex>
       {/* description */}
-      <div>{issue.description}</div>
+      <Markdown className={"prose"}>{issue.description}</Markdown>
     </div>
   );
 };

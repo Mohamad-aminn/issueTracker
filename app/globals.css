@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 html {
-  cursor: url("/customeCursor.png"), pointer;
+  cursor: url("/customeCursor.png"), auto;
+}
+
+a:hover,
+button:hover {
+  cursor: url("/cursorPointer.png"), pointer;
 }
 
 .EasyMDEContainer .CodeMirror {

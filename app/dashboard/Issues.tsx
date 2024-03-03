@@ -15,7 +15,6 @@ export interface Issue {
 
 const Users = async () => {
   const issues: Issue[] = await prisma.issue.findMany();
-  console.log(issues);
 
   return (
     <div className="w-full h-screen">

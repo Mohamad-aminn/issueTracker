@@ -9,12 +9,9 @@ import axios from "axios";
 import "easymde/dist/easymde.min.css";
 import ErrorMessage from "@/app/ErrorMessage";
 import { useRouter } from "next/navigation";
+import { z } from "zod";
 
-interface Issue {
-  id: string;
-  title: string;
-  description: string;
-}
+type Issue = z.infer<typeof addIssueSchema>;
 
 const page = () => {
   const router = useRouter();
