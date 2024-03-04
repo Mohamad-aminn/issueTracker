@@ -3,6 +3,7 @@ import { Flex, Button } from "antd";
 import IssueModal from "./IssueModal";
 import IssueDetail from "./IssueDetail";
 import prisma from "@/prisma/client";
+import delay from "delay";
 
 export interface Issue {
   id: number;
@@ -15,6 +16,8 @@ export interface Issue {
 
 const Users = async () => {
   const issues: Issue[] = await prisma.issue.findMany();
+
+  await delay(1000);
 
   return (
     <div className="w-full h-screen">

@@ -10,10 +10,11 @@ import "easymde/dist/easymde.min.css";
 import ErrorMessage from "@/app/ErrorMessage";
 import { useRouter } from "next/navigation";
 import { z } from "zod";
+import delay from "delay";
 
 type Issue = z.infer<typeof addIssueSchema>;
 
-const page = () => {
+const page = async () => {
   const router = useRouter();
   // react-hook-form to handel the data
   const {
@@ -41,6 +42,7 @@ const page = () => {
     }
   };
 
+  await delay(1000);
   return (
     <Flex
       vertical
