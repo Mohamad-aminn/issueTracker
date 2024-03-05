@@ -9,6 +9,7 @@ const SidebarLinks = () => {
     <Flex vertical gap={10}>
       {sidebarLinks.map((link, i: number) => (
         <Link
+          key={i}
           href={link.href}
           style={{ animationDelay: `${i * 4}99ms` }}
           className="hover:bg-[#1F2544] sidebar-link hover:text-[#dddb] gap-5 transition-colors border-2 border-[#697398] w-full rounded-md text-lg font-medium py-4 flex justify-center text-[#697398]"

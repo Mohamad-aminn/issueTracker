@@ -4,15 +4,7 @@ import IssueModal from "./IssueModal";
 import IssueDetail from "./IssueDetail";
 import prisma from "@/prisma/client";
 import delay from "delay";
-
-export interface Issue {
-  id: number;
-  title: string;
-  description: string;
-  status: "OPEN" | "IN_PROGRESS" | "CLOSED";
-  createdAt: Date;
-  updatedAt: Date;
-}
+import { Issue } from "@prisma/client";
 
 const Users = async () => {
   const issues: Issue[] = await prisma.issue.findMany();

@@ -7,6 +7,7 @@ const loading = () => {
       <Flex vertical gap={"large"} className="p-8">
         {[1, 2, 3, 4].map((number) => (
           <Flex
+            key={number}
             justify="space-between"
             gap={"large"}
             className="p-5 text-[#ccc] border border-[white]/50 rounded-md"

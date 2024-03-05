@@ -1,10 +1,9 @@
 import React from "react";
-import { Issue } from "./Issues";
 import { Flex } from "antd";
 import IssueDescription from "./components/IssueDescription";
+import { Issue } from "@prisma/client";
 
 const IssueDetail = ({ issue }: { issue: Issue }) => {
-  console.log(issue);
   return (
     <div className="w-[53ch]">
       <Flex justify="space-between">
