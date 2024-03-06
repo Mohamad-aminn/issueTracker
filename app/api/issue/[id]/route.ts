@@ -3,6 +3,9 @@ import prisma from "@/prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 // PUT method to change a issue model
+
+// both methods needs authentication via jwt in header
+
 export const PATCH = async (
   req: NextRequest,
   { params }: { params: { id: string } }
@@ -34,5 +37,28 @@ export const PATCH = async (
   } catch (error) {
     console.log(error);
     return NextResponse.json(error, { status: 401 });
+  }
+};
+
+export const DELETE = async (
+  req: NextRequest,
+  { params: { id } }: { params: { id: string } }
+) => {
+  try {
+    // user validation
+
+    const issue = await prisma.issue.findUnique({
+      where: { id: parseInt(id) },
+    });
+
+    if (!issue) {
+      return NextResponse.json({ error: "issue not found!" }, { status: 404 });
+    }
+
+    await prisma.issue.delete({ where: { id: parseInt(id) } });
+
+    return NextResponse.json({}, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(error, { status: 400 });
   }
 };
